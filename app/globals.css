@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 51 89% 84%;
+    --foreground: 0 0% 10%;
+
+    --card: 51 89% 84%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 51 89% 84%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 100% 20%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 59% 41%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 51 70% 85%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 51 100% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 59% 41% / 0.2;
+    --input: 0 59% 41% / 0.2;
+    --ring: 0 100% 20%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 100% 10%;
+    --foreground: 48 100% 91%; /* Cream color for text */
+
+    --card: 0 0% 15%;
+    --card-foreground: 48 100% 91%; /* Cream color for card text */
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 48 100% 91%; /* Cream color for popover text */
+
+    --primary: 0 100% 30%;
+    --primary-foreground: 48 100% 91%; /* Cream color for primary button text */
+
+    --secondary: 0 59% 41%;
+    --secondary-foreground: 48 100% 91%; /* Cream color for secondary button text */
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 48 70% 80%; /* Slightly muted cream color */
+
+    --accent: 51 100% 42%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 48 100% 91%; /* Cream color for destructive button text */
+
+    --border: 0 59% 41% / 0.3;
+    --input: 0 59% 41% / 0.3;
+    --ring: 0 100% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Make icons in dark mode cream-colored */
+  .dark svg:not([fill]) {
+    @apply text-foreground;
+  }
+
+  /* Add specific styling for card icons in dark mode */
+  .dark .card svg:not([fill]) {
+    @apply text-foreground/70;
+  }
+}
+
+/* Custom styles for better responsiveness */
+.responsive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+}
+
+.responsive-container {
+  @apply container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10;
+}
+
+.page-title {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6;
+}
+
+.section-title {
+  @apply text-xl sm:text-2xl font-semibold mb-3 sm:mb-4;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full hover:bg-primary/70 transition-colors;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .print-container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
